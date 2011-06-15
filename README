@@ -1,6 +1,6 @@
 This is an artificial intelligence engine for a small game.
 
-The game consists of placing blocks 2x1 on a square grid. They may be placed vertically or horizontally.
+The game consists of placing 2x1 blocks on a square grid. They may be placed vertically or horizontally (i.e. 2x1 or 1x2).
 Players alternate placing blocks (let's call them green and red blocks). The game finishes when a player cannot place a block (i.e. there are no two adjacent empty squares in the grid).
 
 
