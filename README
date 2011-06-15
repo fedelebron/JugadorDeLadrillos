@@ -1,0 +1,55 @@
+This is an artificial intelligence engine for a small game.
+
+The game consists of placing blocks 2x1 on a square grid. They may be placed vertically or horizontally.
+Players alternate placing blocks (let's call them green and red blocks). The game finishes when a player cannot place a block (i.e. there are no two adjacent empty squares in the grid).
+
+
+The points for each player are calculated as such:
+
+An island is defined as a maximal connected set of blocks. Meaning, there is a path from any one of the squares in the island, moving only to adjacent squares, which never changes colors.
+A player's score starts at 0, and, for each island that is of his color (i.e. made out of his blocks), the square of the island's amount of blocks is added to his score.
+
+If the player's scores are x and y, the game's score is sqrt(|x-y|) for the winner (the one who has the larger of the two values).
+
+
+
+To compile, type "make". You will need GNU make or a compatible make utility. This will compile the judge, our player, and sample faculty players.
+
+
+The game is run by calling
+
+./judge n player1 player2
+
+Where n is the size of the board (n x n), player1 is the binary for player 1 (red), and player2 is the binary for player 2 (green).
+
+A sample run could be:
+
+	./judge 4 jugadores_cat/fixed jugadores_ours/jugador
+
+To play in a 4x4 board.
+
+Our player supports alpha-beta pruning with a minimax strategy, greedy or heuristic functions with runtime-weightable heuristics, and adaptive deepening of the search space. For a small documentation on these features, run ./jugador --help. For even more information, view the source code, or the attached tp.pdf (Spanish) where our team documented not only how the program works, but how we developed it, what we investigated, the algorithmic time bounds we proved and the selection of good heuristic parameters.
+
+
+
+The faculty provided us with sample players, found in jugadores_cat. The best one is heurb, followed by heur, followed by fixed, followed by rand. It is not hard to see what these players do - for more information, you can look at their (short) source in the same directory.
+
+A sample game between the best faculty player and ours would be:
+
+	./judge 10 jugadores_cat/heurb jugadores_ours/jugador --alphabeta --funcion 1 --params 187.0 163.0 221.12 211.2 202.62 --adaptive 1 4
+
+The game also has a PyGTK interface, written by Alejandro Deymonnaz (who also wrote the judge). The interface is started as such:
+
+	./judge 10 python jug_gtk.py -- other_player
+
+You will be presented with a GTK window in which to play against the machine AI. You can be either the first or the second player, by placing yourself before or after other_player.
+
+
+
+The goal of the exercise was to battle on a 10x10 board, knowing that without optimizations and heuristic, the space becomes far too large to handle with naive minimax search.
+
+At the end of the course, players from each group were pitted against eachother in a tournament.
+
+We won.
+
+The team was composed of Martín Miguel, Paula Chocrón, Iván Postolski, and myself.
