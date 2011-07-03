@@ -43,7 +43,7 @@ float puntaje_lineal(const vvint& tablero, const player_param& params) {
 	return (float) puntaje;
 }
 
-int divisiones(const vvint& tablero){
+int divisiones(const vvint& tablero) {
 	int n = tablero.size(), l, isle;
 	int com = floor((n - sqrt(n))/2);
 	int fin = ceil(com + sqrt(n));
